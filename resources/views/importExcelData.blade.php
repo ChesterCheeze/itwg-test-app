@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset = "UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Import Excel Data</title>
-</head>
-<body>
+@extends('components.app-layout')
+@section('title', 'Import Excel')
+
+@section('content')
     <!-- post data to control -->
     <form action="/import" method="post" enctype="multipart/form-data">
         @csrf
@@ -27,4 +23,4 @@
         </ul>
     @endif
     </div>
-</body>
+@endsection
