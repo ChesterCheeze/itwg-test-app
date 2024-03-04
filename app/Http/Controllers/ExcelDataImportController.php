@@ -18,18 +18,15 @@ class ExcelDataImportController extends Controller
 
         $file = $request->file('file');
 
-        Excel::import(new ExcelImport, $file);
+        $import = new ExcelImport();
+        Excel::import($import, $file);
 
-
-       // Return raw data
-         return redirect()->back()->with('status', 'Import Successfully');
-//
-//            $importeData[] = $excelData;
-//        }
-//
-//        // Redirect the user back to the import page with a success message
-//       return back()->with([
-//            'success' => 'Excel data imported successfully.',
-//            'data' => $importeData]);
+        $data = $import->getData();
+        
+        
+        // Redirect the user back to the import page with a success message
+       return back()->with([
+            'success' => 'Excel data imported successfully.',
+            'data' => $data]);
     }
 }

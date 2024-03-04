@@ -16,11 +16,26 @@
     </div>
     <div>
     @if(session('data'))
-        <ul>
-            @foreach(session('data') as $item)
-                <li>{{ $item->name }} - {{ $item->email }}</li>
-            @endforeach
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(session('data') as $item)
+                    <tr>
+                        <td>{{ $item['name'] }}</td>
+                        <td>{{ $item['email'] }}</td>
+                        <td>{{ $item['phone'] }}</td>
+                        <td>{{ $item['address'] }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     @endif
     </div>
 @endsection
